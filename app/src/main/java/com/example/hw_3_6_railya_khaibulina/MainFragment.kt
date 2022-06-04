@@ -6,25 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.hw_3_6_railya_khaibulina.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
+    private lateinit var binding: FragmentMainBinding
     private var btn: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+    ): View {
+        binding =
+            FragmentMainBinding.inflate(LayoutInflater.from(requireContext()), container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn = view.findViewById(R.id.btn)
-        btn?.setOnClickListener{
+        btn?.setOnClickListener {
 
         }
-    replaceFragment(SecondFragment())
+        replaceFragment(SecondFragment())
     }
 }
 
